@@ -1,1 +1,1 @@
-My ALX _printf.c collaborative project.
+ALX _printf.c collaborative project.
