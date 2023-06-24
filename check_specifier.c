@@ -23,7 +23,7 @@ int (*check_specifier(const char *specifier))(va_list)
 	{
 		if (*(check_sp[i].sp) == *specifier)
 		{
-		return (check_sp[i].f);
+			return (check_sp[i].f);
 		}
 	}
 
