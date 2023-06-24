@@ -3,10 +3,15 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
 
+/**
+ * struct check - a struct that encapsulates specifiers
+ * and corresponding functions.
+ * @sp: specifier type.
+ * @f: function pointer that takes va_list arguments.
+ */
 typedef struct check
 {
 	char *sp;
