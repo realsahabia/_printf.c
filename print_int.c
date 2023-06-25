@@ -1,23 +1,44 @@
 #include "main.h"
 /**
-* print_int - function that prints an integer to stdout.
-* @args: variadic arguments.
-*
-* Return: number of characters printed.
-*/
-
+ * print_int - Print int
+ * @args: Lista of arguments
+ *
+ * Return: Number of ints printed
+ */
 int print_int(va_list args)
 {
-	char buffer[20];
-	int integer, count = 0, length, result;
+    int count = 0;
 
-	length = snprintf(buffer, sizeof(buffer), "%d", integer);
-	if (length < 0)
-		return (-1);
+    int integer = va_arg(args, int);
 
-	result = write(1, buffer, length);
-	if (result >= 0)
-	count += result;
+    char buffer[20];
+    int length = 0;
 
-	return (count);
+    if (integer == 0) {
+        buffer[length++] = '0';
+    } else {
+        if (integer < 0) {
+            buffer[length++] = '-';
+            integer = -integer;
+        }
+
+        int temp = integer;
+        while (temp != 0) {
+            temp /= 10;
+            length++;
+        }
+
+        int index = length - 1;
+        while (integer != 0) {
+            int digit = integer % 10;
+            buffer[index--] = '0' + digit;
+            integer /= 10;
+        }
+    }
+
+    int result = write(1, buffer, length);
+    if (result >= 0)
+        count += result;
+
+    return count;
 }
