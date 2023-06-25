@@ -4,7 +4,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include <string.h>
 
 /**
  * struct check - a struct that encapsulates specifiers

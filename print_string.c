@@ -9,8 +9,7 @@
 */
 int print_string(va_list args)
 {
-	int value;
-	int count;
+	int value, count;
 	char *s;
 
 	s = va_arg(args, char *);
@@ -20,9 +19,13 @@ int print_string(va_list args)
 	{
 		while (*s != '\0')
 		{
-			value = write(1, s, strlen(s));
-			count += value;
-			return (count);
+			value = write(1, s, 1);
+
+                        if (value < 0)
+                                return (-1);
+
+                        count += value;
+                        s++;
 		}
 	}
 
