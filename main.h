@@ -11,11 +11,11 @@
  * @sp: specifier type.
  * @f: function pointer that takes va_list arguments.
  */
-typedef struct check
-{
-	char *sp;
-	int (*f)(va_list);
-} check_sp;
+	typedef struct check
+	{
+		char *sp;
+		int (*f)(va_list);
+	} check_sp;
 
 int _printf(const char *format, ...);
 int (*check_specifier(const char *specifier))(va_list);
@@ -23,4 +23,6 @@ int (*check_specifier(const char *specifier))(va_list);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
+int print_int(va_list args);
+
 #endif
