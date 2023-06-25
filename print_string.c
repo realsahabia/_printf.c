@@ -26,6 +26,7 @@ int print_string(va_list args)
 			count += value;
 			s++;
 		}
+		return (count);
 	}
 
 	return (0);
