@@ -1,7 +1,7 @@
 #include "main.h"
 /**
- * print_int - Print int
- * @args: Lista of arguments
+ * print_int - Function that prints integers.
+ * @args: argument lists.
  *
  * Return: Number of ints printed
  */
