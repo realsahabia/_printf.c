@@ -7,38 +7,42 @@
  */
 int print_int(va_list args)
 {
-    int count = 0;
+	int count = 0, integer, length = 0, temp, index, digit, result;
+	char buffer[20];
 
-    int integer = va_arg(args, int);
+	integer = va_arg(args, int);
 
-    char buffer[20];
-    int length = 0;
+	if (integer == 0)
+	{
+		buffer[length++] = '0';
+	}
+	else
+	{
+		if (integer < 0)
+		{
+			buffer[length++] = '-';
+			integer = -integer;
+		}
 
-    if (integer == 0) {
-        buffer[length++] = '0';
-    } else {
-        if (integer < 0) {
-            buffer[length++] = '-';
-            integer = -integer;
-        }
+		temp = integer;
+		while (temp != 0)
+		{
+			temp /= 10;
+			length++;
+		}
 
-        int temp = integer;
-        while (temp != 0) {
-            temp /= 10;
-            length++;
-        }
+		index = length - 1;
+		while (integer != 0)
+		{
+			digit = integer % 10;
+			buffer[index--] = '0' + digit;
+			integer /= 10;
+		}
+	}
 
-        int index = length - 1;
-        while (integer != 0) {
-            int digit = integer % 10;
-            buffer[index--] = '0' + digit;
-            integer /= 10;
-        }
-    }
+	result = write(1, buffer, length);
+	if (result >= 0)
+	count += result;
 
-    int result = write(1, buffer, length);
-    if (result >= 0)
-        count += result;
-
-    return count;
+	return (count);
 }
