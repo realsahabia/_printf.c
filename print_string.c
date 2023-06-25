@@ -21,11 +21,10 @@ int print_string(va_list args)
 		{
 			value = write(1, s, 1);
 
-                        if (value < 0)
-                                return (-1);
-
-                        count += value;
-                        s++;
+			if (value < 0)
+				return (-1);
+			count += value;
+			s++;
 		}
 	}
 
