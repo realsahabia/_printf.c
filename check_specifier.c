@@ -12,18 +12,20 @@ int (*check_specifier(const char *specifier))(va_list)
 {
 	int i;
 
-	check_sp check_sp[] = {
+	check_sp check_sp_array[] = {
 	{"c", print_char},
 	{"s", print_string},
 	{"%", print_percent},
+	{"d", print_int},
+	{"i", print_int},
 	{NULL, NULL}
 	};
 
-	for (i = 0; check_sp[i].sp != NULL; i++)
+	for (i = 0; check_sp_array[i].sp != NULL; i++)
 	{
-		if (*(check_sp[i].sp) == *specifier)
+		if (*(check_sp_array[i].sp) == *specifier)
 		{
-			return (check_sp[i].f);
+			return (check_sp_array[i].f);
 		}
 	}
 
