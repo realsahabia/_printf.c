@@ -7,21 +7,19 @@
  */
 int print_int(va_list args)
 {
-	int count = 0, integer, length = 0, temp, index, digit, result;
+	int count = 0, length = 0, integer, temp, index, digit, result;
 	char buffer[20];
 
 	integer = va_arg(args, int);
 
 	if (integer == 0)
-	{
 		buffer[length++] = '0';
-	}
 	else
 	{
 		if (integer < 0)
 		{
 			buffer[length++] = '-';
-			integer = -integer;
+			integer  = -integer;
 		}
 
 		temp = integer;
@@ -42,7 +40,7 @@ int print_int(va_list args)
 
 	result = write(1, buffer, length);
 	if (result >= 0)
-	count += result;
+		count += result;
 
 	return (count);
 }
