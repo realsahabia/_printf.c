@@ -37,5 +37,5 @@ int (*check_specifier(const char *specifier))(va_list)
 		}
 	}
 
-	return (NULL);
+	return (0);
 }
