@@ -15,6 +15,9 @@ int print_string(va_list args)
 	s = va_arg(args, char *);
 	count = 0;
 
+	if (s == NULL)
+		return (0);
+
 	if (s)
 	{
 		while (*s != '\0')

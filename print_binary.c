@@ -36,6 +36,9 @@ int print_binary(va_list args)
 		}
 
 		value = write(1, buffer, length);
+		if (value < 0)
+			return (-1);
+
 		count += value;
 	}
 	return (count);
