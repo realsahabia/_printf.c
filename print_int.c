@@ -13,10 +13,7 @@ int print_int(va_list args)
 	integer = va_arg(args, int);
 
 	if (integer == 0)
-	{
 		buffer[length++] = '0';
-		count++;
-	}
 	else
 	{
 		if (integer < 0)
@@ -44,7 +41,7 @@ int print_int(va_list args)
 	result = write(1, buffer, length);
 	if (result < 0)
 		return (-1);
-	count += result;
 
+	count += result;
 	return (count);
 }
