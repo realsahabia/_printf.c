@@ -8,7 +8,7 @@
 /**
  * struct check - a struct that encapsulates specifiers
  * and corresponding functions.
- * @sp: specifier type.
+ * @sp: specifier type..
  * @f: function pointer that takes va_list arguments.
  */
 	typedef struct check
