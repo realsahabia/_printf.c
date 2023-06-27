@@ -15,7 +15,7 @@ int print_binary(va_list args)
 
 	if (b == 0)
 	{
-		buffer[index] = b + '0';
+		buffer[index++] = b + '0';
 		value = write(1, buffer, 1);
 		count += value;
 	}
