@@ -38,9 +38,6 @@ int print_octal(va_list args)
 
 	value = write(1, buffer, index);
 
-	if (value == 0)
-		return (-1);
-
 	count += value;
 
 	return (count);
