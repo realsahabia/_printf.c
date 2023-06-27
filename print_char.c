@@ -18,9 +18,6 @@ int print_char(va_list args)
 	if (c)
 	{
 	value = write(1, &c, 1);
-	if (value < 0)
-		return (-1);
-
 	count += value;
 	return (count);
 	}

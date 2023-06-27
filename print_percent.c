@@ -17,8 +17,6 @@ int print_percent(va_list args)
 	if (pc)
 	{
 		value = write(1, "%%", 1);
-		if (value < 0)
-			return (-1);
 
 		count += value;
 		return (count);
