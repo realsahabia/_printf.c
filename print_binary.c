@@ -43,8 +43,3 @@ int print_binary(va_list args)
 	}
 	return (count);
 }
-
-int print_S(va_list args)
-{
-return 0;
-}
