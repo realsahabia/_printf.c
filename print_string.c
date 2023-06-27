@@ -15,6 +15,9 @@ int print_string(va_list args)
 	s = va_arg(args, char *);
 	count = 0;
 
+	if (s == NULL)
+		return (0);
+
 	if (s)
 	{
 		while (*s != '\0')
@@ -23,8 +26,6 @@ int print_string(va_list args)
 			count += value;
 			s++;
 		}
-		return (count);
 	}
-
-	return (0);
+	return (count);
 }
