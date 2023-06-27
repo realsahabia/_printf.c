@@ -27,4 +27,5 @@ int print_string(va_list args);
 int print_percent(va_list args);
 int print_int(va_list args);
 int print_binary(va_list args);
+int print_S(va_list ap, params_t *params);
 #endif
