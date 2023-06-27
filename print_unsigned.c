@@ -25,11 +25,12 @@ int print_unsigned(va_list args)
 			tempbuffer[index++] = digit + '0';
 			u /= base;
 		}
-	}
 
-	for (i = index - 1; i >= 0; i--)
-	{
-		buffer[len++] = tempbuffer[i];
+
+		for (i = index - 1; i >= 0; i--)
+		{
+			buffer[len++] = tempbuffer[i];
+		}
 	}
 
 	value = write(1, buffer, len);
@@ -37,6 +38,5 @@ int print_unsigned(va_list args)
 		return (-1);
 
 	count += value;
-
 	return (count);
 }
