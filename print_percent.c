@@ -14,7 +14,7 @@ int print_percent(va_list args)
 	pc = va_arg(args, int);
 	count = 0;
 	
-	if (pc != '\0')
+	if (pc)
 	{
 		value = write(1, "%%", 1);
 		if (value < 0)
