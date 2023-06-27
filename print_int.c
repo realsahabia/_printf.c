@@ -40,7 +40,7 @@ int print_int(va_list args)
 
 	result = write(1, buffer, length);
 	if (result < 0)
-		return (-);
+		return (-1);
 	count += result;
 	return (count);
 }
