@@ -11,34 +11,32 @@ int print_int(va_list args)
 	char buffer[20];
 
 	integer = va_arg(args, int);
+	temp = integer;
 
-	if (integer == 0)
-		buffer[length++] = '0';
+	if (temp == 0)
+		buffer[index++] = '0';
 	else
 	{
-		if (integer < 0)
+		if (temp < 0)
 		{
-			buffer[length++] = '-';
+			buffer[index++] = '-';
 			integer  = -integer;
 		}
 
-		temp = integer;
 		while (temp != 0)
 		{
+			digit = temp % 10;
+			char tempbuffer[length++] = digit + '0';
 			temp /= 10;
-			length++;
 		}
 
-		index = length - 1;
-		while (integer != 0)
+		for (i = length - 1; i >= 0; i--)
 		{
-			digit = integer % 10;
-			buffer[index--] = '0' + digit;
-			integer /= 10;
+			buffer[index++] = tempbuffer[i];
 		}
 	}
 
-	result = write(1, buffer, length);
+	result = write(1, buffer, index);
 	if (result < 0)
 		return (-1);
 
