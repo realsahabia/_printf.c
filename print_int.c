@@ -7,36 +7,36 @@
  */
 int print_int(va_list args)
 {
-	int count = 0, length = 0, integer, temp, index, digit, result;
-	char buffer[20];
+	int count = 0, length = 0, index = 0;
+	int i, integer, digit, result;
+	char buffer[32], tempbuffer[32];
 
 	integer = va_arg(args, int);
-	temp = integer;
 
-	if (temp == 0)
-		buffer[index++] = '0';
+	if (integer == 0)
+		buffer[length++] = '0';
 	else
 	{
-		if (temp < 0)
+		if (integer < 0)
 		{
-			buffer[index++] = '-';
+			buffer[length++] = '-';
 			integer  = -integer;
 		}
 
-		while (temp != 0)
+		while (integer != 0)
 		{
-			digit = temp % 10;
-			char tempbuffer[length++] = digit + '0';
-			temp /= 10;
+			digit = integer % 10;
+			tempbuffer[index++] = digit + '0';
+			integer /= 10;
 		}
 
-		for (i = length - 1; i >= 0; i--)
+		for (i = index - 1; i >= 0; i--)
 		{
-			buffer[index++] = tempbuffer[i];
+			buffer[length++] = tempbuffer[i];
 		}
 	}
 
-	result = write(1, buffer, index);
+	result = write(1, buffer, length);
 	if (result < 0)
 		return (-1);
 
