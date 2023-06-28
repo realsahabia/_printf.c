@@ -17,6 +17,8 @@ int print_binary(va_list args)
 	{
 		buffer[index++] = b + '0';
 		value = write(1, buffer, 1);
+		if (value < 0)
+			return (-1);
 		count += value;
 	}
 
@@ -34,17 +36,12 @@ int print_binary(va_list args)
 			buffer[index] = binary[i] + '0';
 			index++;
 		}
-
-		value = write(1, buffer, length);
-		if (value < 0)
-			return (-1);
-
-		count += value;
 	}
-	return (count);
-}
 
-int print_S(va_list args)
-{
-return 0;
+	value = write(1, buffer, length);
+	if (value < 0)
+		return (-1);
+
+	count += value;
+	return (count);
 }

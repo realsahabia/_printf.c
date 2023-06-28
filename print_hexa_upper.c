@@ -29,7 +29,7 @@ int print_hexa_upper(va_list args)
 			tempbuffer[index++] = hexChars[digit];
 			temp /= base;
 		}
-	
+
 		for (i = index - 1; i >= 0; i--)
 		{
 			buffer[len++] = tempbuffer[i];
