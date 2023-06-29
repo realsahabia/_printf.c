@@ -1,31 +1,27 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 /**
-* print_char - function that prints a character to stdout.
-* @args: variadic arguments.
-*
-* Return: number of characters printed.
-*/
-
-int print_char(va_list args)
+ * print_char - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: 1.
+ */
+int print_char(va_list c)
 {
-	int value;
-	char c;
-	int count;
+	unsigned char my_char;
 
-	c = (char) va_arg(args, int);
-	count = 0;
-
-	if (c == '\0')
-		return (0);
-
-	if (c)
-	{
-		value = write(1, &c, 1);
-		if (value < 0)
-			return (-1);
-
-		count += value;
-	}
-
-	return (count);
+	my_char = va_arg(c, int);
+	_putchar(my_char);
+	return (1);
+}
+/**
+ * print_porcentage - %
+ *
+ * Return: 1.
+ */
+int print_porcentage(void)
+{
+	_putchar('%');
+	return (1);
 }
