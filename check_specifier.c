@@ -19,6 +19,10 @@ int (*check_specifier(const char *specifier))(va_list)
 	{"d", print_int},
 	{"i", print_int},
 	{"b", print_binary},
+	{"u", print_unsigned},
+	{"o", print_octal},
+	{"x", print_hexa_lower},
+	{"X", print_hexa_upper},
 	{NULL, NULL}
 	};
 

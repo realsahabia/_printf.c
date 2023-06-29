@@ -7,8 +7,9 @@
  */
 int print_int(va_list args)
 {
-	int count = 0, length = 0, integer, temp, index, digit, result;
-	char buffer[20];
+	int count = 0, length = 0, index = 0;
+	int i, integer, digit, result;
+	char buffer[32], tempbuffer[32];
 
 	integer = va_arg(args, int);
 
@@ -22,19 +23,16 @@ int print_int(va_list args)
 			integer  = -integer;
 		}
 
-		temp = integer;
-		while (temp != 0)
-		{
-			temp /= 10;
-			length++;
-		}
-
-		index = length - 1;
 		while (integer != 0)
 		{
 			digit = integer % 10;
-			buffer[index--] = '0' + digit;
+			tempbuffer[index++] = digit + '0';
 			integer /= 10;
+		}
+
+		for (i = index - 1; i >= 0; i--)
+		{
+			buffer[length++] = tempbuffer[i];
 		}
 	}
 
