@@ -1,30 +1,33 @@
-#ifndef MAIN
-#define MAIN
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdarg.h>
-int _putchar(char c);
-int _printf(const char *format, ...);
-int print_char(va_list c);
-int print_string(va_list s);
-int print_int(va_list i);
-int print_dec(va_list d);
-int print_rev(va_list r);
-int print_bin(va_list b);
-int print_unsig(va_list u);
-int print_octal(va_list o);
-int print_x(va_list x);
-int print_X(va_list X);
-int print_rot13(va_list R);
-/**
-  * struct code_format - Struct format
-  *
-  * @sc: The specifiers
-  * @f: The function associated
-  */
-typedef struct code_format
-{
-	char *sc;
-	int (*f)(va_list);
-} code_f;
 
-#endif /* MAIN */
+/**
+ * struct check - a struct that encapsulates specifiers
+ * and corresponding functions.
+ * @sp: specifier type..
+ * @f: function pointer that takes va_list arguments.
+ */
+	typedef struct check
+	{
+		char *sp;
+		int (*f)(va_list);
+	} check_sp;
+
+int _printf(const char *format, ...);
+int (*check_specifier(const char *specifier))(va_list);
+
+int print_char(va_list args);
+int print_string(va_list args);
+int print_percent(va_list args);
+int print_int(va_list args);
+int print_binary(va_list args);
+int print_unsigned(va_list args);
+int print_octal(va_list args);
+int print_hexa_lower(va_list args);
+int print_hexa_upper(va_list args);
+
+#endif

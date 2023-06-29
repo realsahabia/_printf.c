@@ -1,24 +1,34 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 /**
- * print_string - writes the character c to stdout
- * @s: The string to print
- *
- * Return: 1.
- */
-int print_string(va_list s)
+* print_string - function that prints
+* a character string to stdout.
+*
+* @args: variadic arguments.
+*
+* Return: number of characters printed.
+*/
+int print_string(va_list args)
 {
-	char *my_string;
-	int  i = 0;
+	int value, count;
+	char *s;
 
-	my_string = va_arg(s, char *);
-	if (my_string == NULL)
-		my_string = "(null)";
-	while (my_string[i])
+	s = va_arg(args, char *);
+	count = 0;
+
+	if (s == NULL)
+		return (0);
+
+	if (s)
 	{
-		_putchar(my_string[i]);
-		i++;
+		while (*s != '\0')
+		{
+			value = write(1, s, 1);
+			if (value < 0)
+				return (-1);
+
+			count += value;
+			s++;
+		}
 	}
-	return (i);
+	return (count);
 }
